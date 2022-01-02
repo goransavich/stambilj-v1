@@ -1,0 +1,39 @@
+<StambiljWidget>
+    BoxLayout
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Button:
+            text: "Učitaj prijavu"
+            font_size: 24
+            background_normal: ''
+            background_color: (136/255, 189/255, 188/255, 1)
+            on_press: root.ucitaj()
+
+
+        TextInput:
+            id: datum_prijave
+            hint_text: "Datum prijave"
+            font_size: 26
+            size_hint: (1,0.25)
+            multiline: False
+            halign: "center"
+
+
+
+        TextInput:
+            id: broj_prijave
+            hint_text: "Broj prijave"
+            font_size: 26
+            size_hint: (1,0.25)
+            multiline: False
+            halign: "center"
+
+        Button:
+            text: "Završi"
+            font_size: 24
+            background_normal: ''
+            background_color: (17/255, 45/255, 50/255, 1)
+            on_press: root.zavrsi()
+
+
