@@ -3,6 +3,7 @@ from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.lang.builder import Builder
 from plyer import filechooser
+import pathlib
 
 Builder.load_file('./stambilj.kv')
 Window.size = (350,550)
@@ -11,9 +12,12 @@ Window.size = (350,550)
 
 class StambiljWidget(Widget):
     def ucitaj(self):
-        path = filechooser.open_file(title="Izaberi prijavu",
-                                     filters=[("PDf", "*.pdf")])
-        print(path)
+        imported_file = filechooser.open_file(title="Izaberi prijavu",
+                                         filters=["*.pdf", "*.bmp", "*.jpg","*.jpeg", "*.png"])
+
+        if len(imported_file) !=0:
+            file_extension = pathlib.Path(imported_file[0]).suffix
+
 
     def zavrsi(self):
         datum = self.ids.datum_prijave.text
